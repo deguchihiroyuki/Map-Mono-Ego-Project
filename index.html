@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Map-Mono-Ego estimates globally consistent human pose from monocular egocentric video using a pre-scanned 3D point cloud.">
+  <meta name="keywords" content="Map-Mono-Ego, Egocentric Vision, Human Pose Estimation, Monocular Video">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>Map-Mono-Ego: Map-Grounded Global Human Pose Estimation from Monocular Egocentric Video</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,32 +88,29 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">Map-Mono-Ego: Map-Grounded Global Human Pose Estimation from Monocular Egocentric Video</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              Hiroyuki Deguchi<sup>1,2</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              Ryosuke Hori<sup>1,2</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              Kotaro Amaya<sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              Tsubasa Maruyama<sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+              Mitsunori Tada<sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              Hideo Saito<sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Keio University,</span>
+            <span class="author-block"><sup>2</sup>National Institute of Advanced Industrial Science and Technology</span>
           </div>
 
           <div class="column has-text-centered">
@@ -258,31 +255,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Monocular egocentric human pose estimation is essential for ubiquitous activity
+            monitoring. However, understanding the user's absolute location within the environment
+            remains a challenge. Existing methods primarily focus on relative motion from an initial
+            position, and tend not to account for the wearer's absolute location within an
+            environment.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            Furthermore, inherent scale ambiguity in monocular vision leads to severe translational
+            drift, limiting long-term tracking without specialized multi-sensor hardware. To address
+            this, we propose Map-Mono-Ego, a novel framework achieving globally consistent pose
+            estimation solely from a monocular camera by leveraging a pre-scanned 3D point cloud.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            We also introduce AIST-Living dataset, a new dataset pairing egocentric video with
+            ground-truth motion in a scanned environment. Experiments demonstrate that our approach
+            significantly outperforms the state-of-the-art baseline, proving its utility for
+            practical monitoring tasks without specialized hardware.
           </p>
         </div>
       </div>
